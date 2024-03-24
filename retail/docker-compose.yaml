@@ -1,0 +1,15 @@
+services:
+  postgres-dev:
+    image: postgres:14.1-alpine
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=hikari_rms
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    volumes:
+      - db:/var/lib/postgresql/data
+
+volumes:
+  db:
